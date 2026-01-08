@@ -1,76 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>goDora Support</title>
-
-  <!-- SF Pro -->
-  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dora</title>
 
   <!-- Favicon -->
   <link rel="icon" href="assets/Logo_Pink_Favicon.png" type="image/png" />
   <!-- Apple touch icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/Logo_Pink_Favicon.png">
 
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#F830CC",
+            foreground: "#ffffff",
+            "primary-foreground": "#ffffff",
+            border: "rgba(255,255,255,0.2)",
+            card: "rgba(255,255,255,0.08)",
+            "muted-foreground": "rgba(255,255,255,0.7)"
+          },
+          animation: {
+            float: "float 6s ease-in-out infinite",
+            "fade-in": "fade-in 1s ease forwards"
+          },
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-20px)" }
+            },
+            "fade-in": {
+              "0%": { opacity: 0, transform: "translateY(10px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    body {
-      font-family: 'SF Pro Display', sans-serif;
-      background-color: #f7f7f7;
-      padding: 40px;
-      display: flex;
-      justify-content: center;
+    .bg-gradient-futuristic {
+      background: radial-gradient(circle at top, #1e1e2e, #0d0d12);
     }
-
-    .card {
-      background: white;
-      max-width: 600px;
-      width: 100%;
-      padding: 40px;
-      border-radius: 24px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      text-align: center;
+    .bg-gradient-primary {
+      background: linear-gradient(135deg, #F830CC, #F830CC);
     }
-
-    h1 {
-      color: #F830CC;
-      font-weight: 700;
-      margin-top: 20px;
-      margin-bottom: 16px;
-    }
-
-    a {
-      color: #F830CC;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .logo {
-      width: 80px;
-    }
-
-    .footer-links {
-      margin-top: 32px;
-      font-size: 14px;
+    .shadow-glow {
+      box-shadow: 0 0 25px rgba(248, 48, 204, 0.4);
     }
   </style>
-
 </head>
-<body>
-  <div class="card">
-    <!-- Logo centered at the top -->
-    <img src="https://godora.ai/assets/Logo_Pink.png" alt="goDora Logo" class="logo">
 
-    <h1>goDora Support</h1>
+<body class="text-white">
 
-    <p>If you have questions or encounter issues, please email us at:</p>
-    <p><a href="mailto:support@godora.ai">support@godora.ai</a></p>
-    <p>We usually respond within 24 hours.</p>
+  <div class="min-h-screen bg-gradient-futuristic relative overflow-hidden">
 
-    <!-- Privacy Policy -->
-    <div class="footer-links">
-      View our <a href="https://godora.ai/privacy" target="_blank">Privacy Policy</a>.
+    <!-- Floating background elements -->
+    <div class="absolute inset-0 opacity-30">
+      <div class="absolute top-20 left-10 w-[1152px] h-[1152px] bg-primary/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-20 right-10 w-[960px] h-[960px] bg-primary/15 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
     </div>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 pt-20 pb-8 text-center relative z-10 animate-fade-in">
+      <img src="assets/Logo_Pink.png" alt="goDora Logo" class="w-24 h-24 mx-auto mb-8 animate-float" />
+      <h1 class="text-6xl md:text-7xl font-bold mb-6 pb-2 bg-gradient-primary bg-clip-text text-transparent">
+        Dora
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-8">
+        Your AI assistant for calendar, tasks, and navigation
+      </p>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="container mx-auto px-4 pt-8 pb-16 relative z-10">
+      <div class="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
+        <h2 class="text-4xl font-bold mb-6 text-white">What We Do</h2>
+        <p class="text-lg text-white/80 leading-relaxed">
+          Take control of your day with Dora, the AI assistant that combines calendar events, tasks, and multi-stop itineraries into one seamless experience. 
+          Simply tell Dora your appointments, errands, and tasks and it will build an optimized day plan so you spend less time deciding what to do next and more time getting things done.
+        </p>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+        <!-- Card 1 -->
+        <div class="p-8 text-center border border-border bg-card/80 backdrop-blur-sm rounded-2xl
+                    hover:shadow-glow hover:scale-105 transition-all duration-300 animate-fade-in" style="animation-delay: .1s;">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-primary flex items-center justify-center">
+            <i data-lucide="calendar" class="w-8 h-8 text-primary-foreground"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3" style="color: #1C1C1E;">Smart Calendar</h3>
+          <p style="color: #8E8E93;">
+            Automatically organize and optimize your schedule for maximum productivity
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-8 text-center border border-border bg-card/80 backdrop-blur-sm rounded-2xl
+                    hover:shadow-glow hover:scale-105 transition-all duration-300 animate-fade-in" style="animation-delay: .2s;">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-primary flex items-center justify-center">
+            <i data-lucide="check-square" class="w-8 h-8 text-primary-foreground"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3" style="color: #1C1C1E;">Task Management</h3>
+          <p style="color: #8E8E93;">
+            Keep track of everything with intelligent task prioritization and reminders
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-8 text-center border border-border bg-card/80 backdrop-blur-sm rounded-2xl
+                    hover:shadow-glow hover:scale-105 transition-all duration-300 animate-fade-in">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-primary flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-8 h-8 text-primary-foreground"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3" style="color: #1C1C1E;">Daily Routes</h3>
+          <p style="color: #8E8E93;">
+            Get optimized routes that save time and help you navigate your day smoothly
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-4 py-12 text-center relative z-10">
+      <p class="text-muted-foreground">
+        © 2026 goDora. Making your day effortless, one plan at a time.
+      </p>
+      <p class="text-muted-foreground mt-2">
+        <a href="https://godora.ai/privacy" class="hover:text-primary transition-colors">Privacy Policy</a> | <a href="https://godora.ai/termsofservice" class="hover:text-primary transition-colors">Terms of Service</a> | <a href="https://godora.ai/support" class="hover:text-primary transition-colors">Contact Us</a>
+      </p>
+    </footer>
+
   </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+
 </body>
 </html>
